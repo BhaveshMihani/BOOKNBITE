@@ -19,7 +19,7 @@ const Reservation = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/reservation/send",
+        "http://51.21.222.251:4000/api/v1/reservation/send",
         { firstName, lastName, email, phone, date, time, no_person },
         {
           header: {
@@ -51,7 +51,7 @@ const Reservation = () => {
         <div className="banner">
           <div className="reservation_from_box">
             <h1>MAKE A RESERVATION</h1>
-            <p>For Further Questions,Please Call on: 7487903707</p>
+            <p>For Further Questions, Please Call on: 7487903707</p>
             <form>
               <div>
                 <input

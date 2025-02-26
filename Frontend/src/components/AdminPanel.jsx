@@ -16,7 +16,7 @@ const AdminPanel = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/getReservations")
+      .get("http://<your-ec2-public-ip>:4000/getReservations")
       .then((response) => setUsers(response.data))
       .catch((err) => console.log(err));
   }, []);
@@ -46,7 +46,7 @@ const AdminPanel = () => {
     );
 
     axios
-      .put("http://localhost:4000/updateReservations", filteredData)
+      .put("http://<your-ec2-public-ip>:4000/updateReservations", filteredData)
       .then((response) => {
         const updatedUsers = users.map((user) =>
           user._id === id ? { ...user, ...response.data } : user
@@ -64,14 +64,14 @@ const AdminPanel = () => {
   };
 
   const handleDeleteClick = (id) => {
-    axios.delete(`http://localhost:4000/deleteReservations/${id}`);
+    axios.delete(`http://51.21.222.251:4000/deleteReservations/${id}`);
     toast.success("Reservation Deleted Successfully");
     location.reload();
   };
 
   return (
     <div className="container-fluid mt-5 w-400">
-      <div className="contianer  vh-100 p-3 mb-5 bg-body rounded">
+      <div className="container vh-100 p-3 mb-5 bg-body rounded">
         <div className="full-width">
           <h1 className="card-title text-center pb-3">CURRENT RESERVATIONS</h1>
           <table className="table table-striped table-bordered table-hover">
